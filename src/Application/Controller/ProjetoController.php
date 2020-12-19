@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Controller;
+namespace App\Application\Controller;
 
 use App\Domain\Form\Type\ProjetoType;
 use App\Domain\Model\Projeto;
