@@ -3,7 +3,7 @@
 namespace App\Domain\Services;
 
 use App\Domain\Model\Projeto;
-use App\Domain\Model\ProjetoRepositoryInterface;
+use App\Infrastructure\Repository\ProjetoRepository;
 
 /**
  * Class ProjetoService
@@ -13,15 +13,15 @@ class ProjetoService
 {
 
     /**
-     * @var ProjetoRepositoryInterface
+     * @var ProjetoRepository
      */
-    public ProjetoRepositoryInterface $projetoRepository;
+    public ProjetoRepository $projetoRepository;
 
     /**
      * ProjetoService constructor.
-     * @param ProjetoRepositoryInterface $projetoRepository
+     * @param ProjetoRepository $projetoRepository
      */
-    public function __construct(ProjetoRepositoryInterface $projetoRepository)
+    public function __construct(ProjetoRepository $projetoRepository)
     {
         $this->projetoRepository = $projetoRepository;
     }
@@ -45,7 +45,7 @@ class ProjetoService
     /**
      * @return array
      */
-    public function getNumroDeProjetos(): int
+    public function getNumroDeProjetos(): array
     {
         return $this->projetoRepository->getNumeroProjetos();
     }
