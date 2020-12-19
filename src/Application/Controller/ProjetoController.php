@@ -4,7 +4,7 @@ namespace App\Application\Controller;
 
 use App\Domain\Form\Type\ProjetoType;
 use App\Domain\Model\Projeto;
-use App\Domain\Services\ProjetoService;
+use App\Application\Service\ProjetoServiceImpl;
 use App\Infrastructure\Repository\UsuarioAtribuicaoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\AbstractType;
@@ -20,15 +20,15 @@ class ProjetoController extends AbstractController
 {
 
     /**
-     * @var ProjetoService
+     * @var ProjetoServiceImpl
      */
-    private ProjetoService $projetoService;
+    private ProjetoServiceImpl $projetoService;
 
     /**
      * ProjetoController constructor.
-     * @param ProjetoService $projetoService
+     * @param ProjetoServiceImpl $projetoService
      */
-    public function __construct(ProjetoService $projetoService)
+    public function __construct(ProjetoServiceImpl $projetoService)
     {
         $this->projetoService = $projetoService;
     }

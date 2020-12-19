@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Domain\Services;
+namespace App\Application\Service;
 
 use App\Domain\Model\Projeto;
+use App\Domain\Service\ProjetoService;
 use App\Infrastructure\Repository\ProjetoRepository;
 
 /**
- * Class ProjetoService
- * @package App\Domain\Services
+ * Class ProjetoServiceImpl
+ * @package App\Application\Service
  */
-class ProjetoService
+class ProjetoServiceImpl implements ProjetoService
 {
 
     /**
@@ -18,7 +19,7 @@ class ProjetoService
     public ProjetoRepository $projetoRepository;
 
     /**
-     * ProjetoService constructor.
+     * ProjetoServiceImpl constructor.
      * @param ProjetoRepository $projetoRepository
      */
     public function __construct(ProjetoRepository $projetoRepository)
@@ -29,7 +30,7 @@ class ProjetoService
     /**
      * @param Projeto $projeto
      */
-    public function salvar(Projeto $projeto)
+    public function salvar(Projeto $projeto): void
     {
         $this->projetoRepository->salvar($projeto);
     }
@@ -43,9 +44,9 @@ class ProjetoService
     }
 
     /**
-     * @return array
+     * @return int
      */
-    public function getNumroDeProjetos(): array
+    public function getNumeroProjetos(): int
     {
         return $this->projetoRepository->getNumeroProjetos();
     }
