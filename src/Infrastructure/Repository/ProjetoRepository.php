@@ -2,11 +2,13 @@
 
 namespace App\Infrastructure\Repository;
 
+use App\Domain\Model\Projeto;
+
 /**
- * class ProjetoRepositoryInterface
- * @package App\Domain\Model
+ * class ProjetoRepository
+ * @package App\Infrastructure\Repository
  */
-interface ProjetoRepositoryInterface
+interface ProjetoRepository
 {
     public function salvar(Projeto $projeto): void;
 

@@ -3,15 +3,18 @@
 namespace App\Infrastructure\Repository;
 
 use App\Domain\Model\Projeto;
-use App\Domain\Model\ProjetoRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * Class ProjetoRepository
+ * Class ProjetoRepositoryImpl
  * @package App\Infrastructure\Repository
  */
-class ProjetoRepository extends ServiceEntityRepository implements ProjetoRepositoryInterface
+class ProjetoRepositoryImpl extends ServiceEntityRepository implements ProjetoRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -20,8 +23,8 @@ class ProjetoRepository extends ServiceEntityRepository implements ProjetoReposi
 
     /**
      * @param Projeto $projeto
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function salvar(Projeto $projeto): void
     {
@@ -39,8 +42,8 @@ class ProjetoRepository extends ServiceEntityRepository implements ProjetoReposi
 
     /**
      * @return int
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NoResultException
+     * @throws NonUniqueResultException
      */
     public function getNumeroProjetos(): int
     {
