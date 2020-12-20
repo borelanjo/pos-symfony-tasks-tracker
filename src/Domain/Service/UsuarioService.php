@@ -10,6 +10,9 @@ use App\Domain\Model\Usuario;
  */
 interface UsuarioService
 {
+
+    public function salvar(Usuario $usuario): void;
+
     public function listar(): array;
 
     public function atribuicoes(int $id): array;

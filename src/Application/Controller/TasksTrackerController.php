@@ -8,7 +8,7 @@ use App\Domain\Model\Status;
 use App\Domain\Model\Task;
 use App\Domain\Model\Usuario;
 use App\Application\Service\ProjetoServiceImpl;
-use App\Infrastructure\Repository\UsuarioRepository;
+use App\Infrastructure\Repository\UsuarioRepositoryImpl;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,9 +26,9 @@ class TasksTrackerController extends AbstractController
      */
     public ProjetoServiceImpl $projetoService;
 
-    public UsuarioRepository $usuarioRepository;
+    public UsuarioRepositoryImpl $usuarioRepository;
 
-    public function __construct(ProjetoServiceImpl $projetoService, UsuarioRepository $usuarioRepository)
+    public function __construct(ProjetoServiceImpl $projetoService, UsuarioRepositoryImpl $usuarioRepository)
     {
         $this->projetoService = $projetoService;
         $this->usuarioRepository = $usuarioRepository;

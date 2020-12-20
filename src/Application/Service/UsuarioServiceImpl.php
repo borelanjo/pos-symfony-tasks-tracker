@@ -2,6 +2,7 @@
 
 namespace App\Application\Service;
 
+use App\Domain\Model\Usuario;
 use App\Domain\Model\UsuarioAtribuicao;
 use App\Domain\Service\UsuarioService;
 use App\Infrastructure\Repository\UsuarioRepository;
@@ -28,6 +29,11 @@ class UsuarioServiceImpl implements UsuarioService
         $this->usuarioRepository = $usuarioRepository;
     }
 
+    public function salvar(Usuario $usuario): void
+    {
+        $this->usuarioRepository->salvar($usuario);
+    }
+
     public function listar(): array
     {
         return $this->usuarioRepository->listar();
@@ -41,4 +47,5 @@ class UsuarioServiceImpl implements UsuarioService
             ->findBy(['usuario' => $id]);
 
     }
+
 }
