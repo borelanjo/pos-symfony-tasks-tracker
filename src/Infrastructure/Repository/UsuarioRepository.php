@@ -19,6 +19,14 @@ class UsuarioRepository extends ServiceEntityRepository
         parent::__construct($registry, Usuario::class);
     }
 
+    /**
+     * @return array
+     */
+    public function listar(): array
+    {
+        return $this->findAll();
+    }
+
 
     /**
      * @return int
