@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Domain\Model;
+namespace App\Domain\Service;
+
+use App\Domain\Model\Projeto;
 
 /**
- * class ProjetoRepositoryInterface
- * @package App\Domain\Model
+ * class ProjetoService
+ * @package App\Domain\Service
  */
-interface ProjetoRepositoryInterface
+interface ProjetoService
 {
     public function salvar(Projeto $projeto): void;
 
